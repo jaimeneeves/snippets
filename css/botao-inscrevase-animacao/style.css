@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.subscribe-btn {
+  padding: 15px 30px;
+  background-color: #FF0000;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.subscribe-btn:hover {
+  background-color: #D90000;
+  transform: translateY(-5px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
+}
+
+.subscribe-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

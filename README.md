@@ -1,1 +1,1 @@
-# devsnippets
+# Snippets
