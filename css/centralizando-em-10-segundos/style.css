@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.box {
+  padding: 20px;
+  background-color: #007BFF;
+  color: white;
+  border-radius: 5px;
+}
