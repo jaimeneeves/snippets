@@ -1,0 +1,39 @@
+
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --btn-bg-color: #007BFF;
+  --btn-text-color: #ffffff;
+}
+
+/* Variáveis para o tema escuro */
+[data-theme="dark"] {
+  --bg-color: #333333;
+  --text-color: #ffffff;
+  --btn-bg-color: #FF5733;
+  --btn-text-color: #000000;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--btn-bg-color);
+  color: var(--btn-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.content {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
