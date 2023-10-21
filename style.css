@@ -1,0 +1,25 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  color: #007BFF;
+  text-decoration: none;
+  position: relative;
+  padding: 0 10px;
+}
+
+.breadcrumb a::after {
+  content: ">";
+  position: absolute;
+  right: -5px;
+  color: #333;
+}
+
+.breadcrumb span {
+  color: #333;
+}

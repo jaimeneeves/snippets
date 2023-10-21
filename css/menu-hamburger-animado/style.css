@@ -1,0 +1,50 @@
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.menu-icon {
+  width: 120px;
+  height: 62px;
+  position: relative;
+  cursor: pointer;
+}
+
+.bar {
+  background-color: #333;
+  height: 8px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+}
+.bar:nth-child(1) {
+  top: 0;
+}
+
+.bar:nth-child(2) {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.bar:nth-child(3) {
+  bottom: 0;
+}
+
+.menu-icon.open .bar:nth-child(1) {
+  transform: rotate(45deg);
+  top: 50%;
+  transform-origin: center;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  bottom: 40%;
+  transform-origin: center;
+}
