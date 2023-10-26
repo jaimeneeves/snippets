@@ -1,10 +1,9 @@
+
 const btn = document.createElement('button');
+btn.innerHTML = "Clique-me!";
 
-btn.innerHTML = 'Clique-me!';
+btn.addEventListener("click", () => {
+  alert("Botão Clicado");
+});
 
-
-btn.addEventListener('click', () => {
-  alert('Botão Clicado');
-})
-
-document.getElementById('content').appendChild(btn);
+document.querySelector("#content").appendChild(btn)
