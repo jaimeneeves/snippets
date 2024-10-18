@@ -66,7 +66,7 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
   }, [minVal, midVal, maxVal, onChange]);
 
   return (
-    <div className="container">
+    <div className="multi-range-container">
       {/* Slider para o valor mínimo */}
       <input
         type="range"
@@ -79,11 +79,11 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           setMinVal(value);
           event.target.value = value.toString();
         }}
-        className={classnames("thumb thumb--zindex-3", {
-          "thumb--zindex-5": minVal > max - 100
+        className={classnames("multi-range-thumb multi-range-thumb--zindex-3", {
+          "multi-range-thumb--zindex-5": minVal > max - 100
         })}
       />
-
+  
       {/* Slider para o valor intermediário */}
       <input
         type="range"
@@ -96,9 +96,9 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           setMidVal(value);
           event.target.value = value.toString();
         }}
-        className={classnames("thumb thumb--zindex-4")}
+        className="multi-range-thumb multi-range-thumb--zindex-4"
       />
-
+  
       {/* Slider para o valor máximo */}
       <input
         type="range"
@@ -111,24 +111,24 @@ const MultiRangeSlider: FC<MultiRangeSliderProps> = ({
           setMaxVal(value);
           event.target.value = value.toString();
         }}
-        className="thumb thumb--zindex-4"
+        className="multi-range-thumb multi-range-thumb--zindex-4"
       />
-
-      <div className="slider">
-        <div className="slider__track"></div>
-
+  
+      <div className="multi-range-slider">
+        <div className="multi-range-slider__track"></div>
+  
         {/* Faixa entre min e mid */}
-        <div ref={rangeMinToMid} className="slider__range"></div>
-
+        <div ref={rangeMinToMid} className="multi-range-slider__range multi-range-slider__range--min-to-mid"></div>
+  
         {/* Faixa entre mid e max */}
-        <div ref={rangeMidToMax} className="slider__range"></div>
-
-        <div className="slider__left-value">{minVal}</div>
-        <div className="slider__mid-value">{midVal}</div> {/* Valor intermediário */}
-        <div className="slider__right-value">{maxVal}</div>
+        <div ref={rangeMidToMax} className="multi-range-slider__range multi-range-slider__range--mid-to-max"></div>
+  
+        <div className="multi-range-slider__left-value">{minVal}</div>
+        <div className="multi-range-slider__mid-value">{midVal}</div> {/* Valor intermediário */}
+        <div className="multi-range-slider__right-value">{maxVal}</div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default MultiRangeSlider;

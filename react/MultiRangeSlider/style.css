@@ -1,5 +1,5 @@
 /* Estilos base para o container */
-.container {
+.multi-range-container {
   position: relative;
   width: 100%;
   height: 6rem;
@@ -15,7 +15,34 @@ input[type="range"] {
   pointer-events: none; /* Desabilita a interação direta */
 }
 
-/* Estilos para os thumbs (os controladores) */
+/* Estilos gerais para os thumbs (controladores) */
+.multi-range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: all; /* Permite a interação */
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background-color: #007bff;
+  border: 2px solid #fff;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Diferentes camadas de z-index para os thumbs */
+.multi-range-thumb--zindex-3 {
+  z-index: 3;
+}
+
+.multi-range-thumb--zindex-4 {
+  z-index: 4;
+}
+
+.multi-range-thumb--zindex-5 {
+  z-index: 5;
+}
+
+/* Estilos para os thumbs no Chrome e Safari */
 input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -30,6 +57,7 @@ input[type="range"]::-webkit-slider-thumb {
   z-index: 1;
 }
 
+/* Estilos para os thumbs no Firefox */
 input[type="range"]::-moz-range-thumb {
   pointer-events: all;
   width: 1.2rem;
@@ -43,7 +71,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Estilos para a faixa de fundo do slider */
-.slider__track {
+.multi-range-slider__track {
   position: absolute;
   width: 100%;
   height: 0.4rem;
@@ -54,11 +82,22 @@ input[type="range"]::-moz-range-thumb {
   transform: translateY(-50%);
 }
 
-/* Estilos para as faixas coloridas que mostram a seleção */
-.slider__range {
+/* Faixa entre min e mid com cor personalizada */
+.multi-range-slider__range--min-to-mid {
   position: absolute;
   height: 0.4rem;
-  background-color: #007bff;
+  background-color: #f00; /* Cor vermelha para a faixa entre min e mid */
+  border-radius: 0.2rem;
+  z-index: 1;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Faixa entre mid e max com cor personalizada */
+.multi-range-slider__range--mid-to-max {
+  position: absolute;
+  height: 0.4rem;
+  background-color: #0f0; /* Cor verde para a faixa entre mid e max */
   border-radius: 0.2rem;
   z-index: 1;
   top: 50%;
@@ -66,7 +105,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Valor mínimo */
-.slider__left-value {
+.multi-range-slider__left-value {
   position: absolute;
   top: -2rem;
   left: 0;
@@ -75,7 +114,7 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Valor intermediário */
-.slider__mid-value {
+.multi-range-slider__mid-value {
   position: absolute;
   top: -2rem;
   left: 50%;
@@ -85,23 +124,10 @@ input[type="range"]::-moz-range-thumb {
 }
 
 /* Valor máximo */
-.slider__right-value {
+.multi-range-slider__right-value {
   position: absolute;
   top: -2rem;
   right: 0;
   color: #333;
   font-size: 0.8rem;
-}
-
-/* Diferentes camadas de z-index para os thumbs */
-.thumb--zindex-3 {
-  z-index: 3;
-}
-
-.thumb--zindex-4 {
-  z-index: 4;
-}
-
-.thumb--zindex-5 {
-  z-index: 5;
 }
