@@ -96,9 +96,29 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         <div ref={rangeMinToMid} className="slider__range slider__range--min-to-mid"></div>
         <div ref={rangeMidToMax} className="slider__range slider__range--mid-to-max"></div>
 
-        <div className="slider__left-value">{minVal}</div>
+        {/* <div className="slider__left-value">{minVal}</div>
         <div className="slider__mid-value">{midVal}</div>
-        <div className="slider__right-value">{maxVal}</div>
+        <div className="slider__right-value">{maxVal}</div> */}
+
+        <div className='sliders-values'>
+          <div className='sliders-values-items'>
+            <div>|</div>
+            <div>0</div>
+          </div>
+          <div className='sliders-values-items'>
+            <div>|</div>
+            <div>250</div>
+          </div>
+          <div className='sliders-values-items'>
+            <div>|</div>
+            <div>500</div>
+          </div>
+          <div className='sliders-values-items'>
+            <div>|</div>
+            <div>750</div>
+          </div>
+          <div>1000</div>
+        </div>
       </div>
     </div>
   );

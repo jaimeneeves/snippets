@@ -80,9 +80,37 @@ input[type="range"]::-moz-range-thumb {
 .slider__mid-value,
 .slider__right-value {
   position: absolute;
-  top: -1.5rem;
+  top: 3rem;
   color: #333;
   font-size: 0.8rem;
+}
+
+
+/* .sliders-values-pipe {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 3rem;
+  color: #333;
+  font-size: 0.8rem;
+  width: 100%;
+} */
+
+.sliders-values {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 3rem;
+  color: #333;
+  font-size: 0.8rem;
+  width: 100%;
+
+  .sliders-values-items {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 .slider__left-value {
