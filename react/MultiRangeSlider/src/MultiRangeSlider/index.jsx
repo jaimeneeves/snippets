@@ -17,13 +17,20 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
   const maxValRef = useRef(null);
   const rangeMinToMid = useRef(null);
   const rangeMidToMax = useRef(null);
-  const rangeMaxToEnd = useRef(null); // Nova referência para o último range
+  const rangeMaxToEnd = useRef(null);
 
   // Função para calcular a porcentagem
   const getPercent = useCallback(
     (value) => Math.round(((value - min) / (max - min)) * 100),
     [min, max]
   );
+
+  const handleSliderChangeEnd = () => {
+    onChange({ min: minVal, mid: midVal, max: maxVal });
+    setShowMinTooltip(false);
+    setShowMidTooltip(false);
+    setShowMaxTooltip(false);
+  };
 
   // Atualizar a faixa entre min e mid
   useEffect(() => {
@@ -63,11 +70,6 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
     }
   }, [maxVal, getPercent]);
 
-  // Obter valores atualizados sempre que o estado mudar
-  useEffect(() => {
-    onChange({ min: minVal, mid: midVal, max: maxVal });
-  }, [minVal, midVal, maxVal, onChange]);
-
   return (
     <div className="container">
 
@@ -81,7 +83,9 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         value={minVal}
         ref={minValRef}
         onMouseDown={() => setShowMinTooltip(true)}
-        onMouseUp={() => setShowMinTooltip(false)}
+        onMouseUp={handleSliderChangeEnd}
+        onTouchEnd={handleSliderChangeEnd}
+        onTouchStart={() => setShowMaxTooltip(true)}
         onChange={(event) => {
           const value = Math.min(+event.target.value, midVal - 1);
           setMinVal(value);
@@ -98,7 +102,9 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         value={midVal}
         ref={midValRef}
         onMouseDown={() => setShowMidTooltip(true)}
-        onMouseUp={() => setShowMidTooltip(false)}
+        onMouseUp={handleSliderChangeEnd}
+        onTouchEnd={handleSliderChangeEnd}
+        onTouchStart={() => setShowMidTooltip(true)}
         onChange={(event) => {
           const value = Math.max(Math.min(+event.target.value, maxVal - 1), minVal + 1);
           setMidVal(value);
@@ -115,7 +121,9 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         value={maxVal}
         ref={maxValRef}
         onMouseDown={() => setShowMaxTooltip(true)}
-        onMouseUp={() => setShowMaxTooltip(false)}
+        onMouseUp={handleSliderChangeEnd}
+        onTouchStart={() => setShowMaxTooltip(true)}
+        onTouchEnd={handleSliderChangeEnd}
         onChange={(event) => {
           const value = Math.max(+event.target.value, midVal + 1);
           setMaxVal(value);
