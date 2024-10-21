@@ -14,6 +14,7 @@ input[type="range"] {
   appearance: none;
   background: transparent;
   pointer-events: none;
+  top: 30%;
 }
 
 /* Estilos para os thumbs (controladores) */
@@ -44,9 +45,9 @@ input[type="range"]::-moz-range-thumb {
 /* Estilos para a faixa de fundo do slider (track) */
 .slider__track {
   position: absolute;
-  width: 100%;
+  width: 100%;  
   height: 0.4rem;
-  background-color: #ddd; /* Cor de fundo da linha completa */
+  background-color: #ef4444; /* Cor de fundo da linha completa */
   border-radius: 0.2rem;
   z-index: 1;
   top: 50%;
@@ -57,8 +58,9 @@ input[type="range"]::-moz-range-thumb {
 .slider__range--min-to-mid {
   position: absolute;
   height: 0.4rem;
-  background-color: red; /* Cor vermelha para a faixa entre min e mid */
-  border-radius: 0.2rem;
+  background-color: #eab308;
+  border-bottom-left-radius: 0.2rem;
+  border-top-left-radius: 0.2rem;
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
@@ -68,7 +70,18 @@ input[type="range"]::-moz-range-thumb {
 .slider__range--mid-to-max {
   position: absolute;
   height: 0.4rem;
-  background-color: green; /* Cor verde para a faixa entre mid e max */
+  background-color: #14b8a6; /* Cor verde para a faixa entre mid e max */
+  border-top-right-radius: 0.2rem;
+  border-bottom-right-radius: 0.2rem;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slider__range--max-to-end {
+  position: absolute;
+  height: 0.4rem;
+  background-color: #2563eb;
   border-radius: 0.2rem;
   z-index: 2;
   top: 50%;
@@ -104,6 +117,7 @@ input[type="range"]::-moz-range-thumb {
   color: #333;
   font-size: 0.8rem;
   width: 100%;
+  padding: 0 0.1rem;
 
   .sliders-values-items {
     display: flex;
@@ -124,4 +138,50 @@ input[type="range"]::-moz-range-thumb {
 
 .slider__right-value {
   right: 0;
+}
+
+.tooltip {
+  position: absolute;
+  top: -1.5rem; /* Ajustado para acomodar a seta */
+  transform: translateX(-50%);
+  background-color: #fff; /* Background branco */
+  color: #000; /* Texto preto */
+  padding: 0.3rem 0.6rem;
+  border-radius: 0.3rem;
+  border: 1px solid #ccc; /* Adiciona uma borda para separar do fundo */
+  font-size: 0.8rem;
+  white-space: nowrap;
+  z-index: 5;
+  box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
+}
+
+/* Arrow para o tooltip */
+.tooltip::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; /* Posição abaixo do tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: #fff transparent transparent transparent; /* Cria a seta com o background branco */
+}
+
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: -14px; /* Posição da borda um pouco abaixo do arrow */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 7px; /* Um pouco maior que o arrow */
+  border-style: solid;
+  border-color: #ccc transparent transparent transparent; /* Cria a borda cinza */
+}
+
+.thumb--zindex-3 {
+  z-index: 3;
+  /* left: -0.9%; */
+}
+.thumb--zindex-4 {
+  z-index: 3;
 }

@@ -8,8 +8,8 @@ function App() {
 
   const [sliderValues, setSliderValues] = useState({
     min: 0,
-    mid: 50,
-    max: 100
+    mid: 500,
+    max: 1000
   })
 
   const handleChange = (values) => {
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <>
-      <MultiRangeSlider min={0} max={100} onChange={handleChange} />
+      <MultiRangeSlider min={0} max={1000} onChange={handleChange} />
     </>
   )
 }
