@@ -1,21 +1,16 @@
-import { useState, useCallback } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import MultiRangeSlider from './MultiRangeSlider'
-import './App.css'
+import { useState, useCallback } from 'react';
+import MultiRangeSlider from './MultiRangeSlider';
 
-function App() {
-
-  const [sliderValues, setSliderValues] = useState({
-    min: 0,
-    mid: 500,
-    max: 1000
-  })
+const App = () => {
+  const [sliderValues, setSliderValues] = useState({ min: 0, mid: 500, max: 1000 });
 
   const handleSliderChange = useCallback((newValues) => {
-    // Apenas atualiza o estado se os valores forem diferentes
-    if (newValues.min !== sliderValues.min || newValues.mid !== sliderValues.mid || newValues.max !== sliderValues.max) {
-      setSliderValues(newValues);
+    const min = Math.min(newValues.min, newValues.mid);
+    const mid = Math.max(Math.min(newValues.mid, newValues.max), min);
+    const max = Math.max(newValues.max, mid);
+
+    if (min !== sliderValues.min || mid !== sliderValues.mid || max !== sliderValues.max) {
+      setSliderValues({ min, mid, max });
     }
   }, [sliderValues]);
 
@@ -62,9 +57,11 @@ function App() {
         min={0}
         mid={500}
         max={1000}
-        onChange={handleSliderChange} />
+        values={sliderValues}
+        onChange={handleSliderChange}
+      />
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
