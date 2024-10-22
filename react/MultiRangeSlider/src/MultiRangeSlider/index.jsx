@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 import './MultiRangeSlider.css';
 
-const MultiRangeSlider = ({ min, max, onChange }) => {
+const MultiRangeSlider = ({ min, mid, max, onChange }) => {
   const [minVal, setMinVal] = useState(min);
-  const [midVal, setMidVal] = useState((min + max) / 2);
+  const [midVal, setMidVal] = useState(mid);
   const [maxVal, setMaxVal] = useState(max);
 
   // Estados para controlar a visibilidade dos tooltips
@@ -137,10 +137,6 @@ const MultiRangeSlider = ({ min, max, onChange }) => {
         <div ref={rangeMinToMid} className="slider__range slider__range--min-to-mid"></div>
         <div ref={rangeMidToMax} className="slider__range slider__range--mid-to-max"></div>
         <div ref={rangeMaxToEnd} className="slider__range slider__range--max-to-end"></div>
-
-        {/* <div className="slider__left-value">{minVal}</div>
-        <div className="slider__mid-value">{midVal}</div>
-        <div className="slider__right-value">{maxVal}</div> */}
 
         <div className='sliders-values'>
           <div className='sliders-values-items'>

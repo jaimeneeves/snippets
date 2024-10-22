@@ -60,7 +60,7 @@ function App() {
       </div>
       <MultiRangeSlider
         min={0}
-        // mid={sliderValues.mid}
+        mid={500}
         max={1000}
         onChange={handleSliderChange} />
     </>
