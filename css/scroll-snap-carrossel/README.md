@@ -82,13 +82,13 @@ scroll-snap-stop: always;
 Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
+git clone https://github.com/jaimeneeves/snippets.git
 ```
 
 Acesse a pasta do projeto:
 
 ```bash
-cd nome-do-repositorio
+cd css/scroll-snap-carrossel
 ```
 
 Abra o arquivo `index.html` diretamente no navegador.
